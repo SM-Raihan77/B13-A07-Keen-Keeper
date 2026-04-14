@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className='bg-base-100 shadow-sm '>
             <div className="navbar  container mx-auto">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl text-bold">Keen <span className="text-primary">Keeper</span></a>
+                    <a className="btn btn-ghost text-xl text-bold text-black">Keen <span className="text-2xl text-bold text-[#0d493b]">Keeper</span></a>
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-3 gap-2 items-center">
