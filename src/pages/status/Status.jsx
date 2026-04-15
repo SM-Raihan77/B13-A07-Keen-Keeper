@@ -21,7 +21,7 @@ const Status = () => {
     if (timeline.length === 0) {
         return (
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
-                <p className="text-lg font-bold text-gray-700 mb-4 ">No interactions logged to show status.</p>
+                <p className="text-lg font-bold text-[#1a3c34] mb-4 ">No interactions logged to show status.</p>
             </div>
         );
     }

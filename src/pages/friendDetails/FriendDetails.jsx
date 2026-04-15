@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 
 
+
 const FriendDetails = () => {
     const { id } = useParams();
    
@@ -28,24 +29,24 @@ const FriendDetails = () => {
     //    toast.success(`${type} added!`);
 
     // }
-// ১. Context থেকে timeline এবং addEntry দুটোই রিসিভ করুন
+
 const { addEntry, timeline } = useContext(TimelineContext); 
 
 const handleAction = (type) => {
     if (!expectedFriend) return;
 
-    // ২. find দিয়ে চেক করুন এই বন্ধু এবং এই টাইপের কোনো এন্ট্রি আগে থেকে আছে কি না
+    
     const existingEntry = timeline.find(
         (entry) => entry.name === expectedFriend.name && entry.type === type
     );
 
-    // ৩. যদি existingEntry থাকে (অর্থাৎ ডাটা পাওয়া গেছে)
+    
     if (existingEntry) {
         toast.error(`Already logged a ${type} for ${expectedFriend.name}!`);
-        return; // এখানেই ফাংশন থামিয়ে দিন
+        return; 
     }
 
-    // ৪. যদি আগে না থাকে, তবেই নতুন ডাটা যোগ হবে
+    
     addEntry(type, expectedFriend.name);
     toast.success(`${type} added to timeline!`);
 };
