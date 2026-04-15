@@ -3,7 +3,7 @@ import { TimelineContext } from '../../Context/TimelineContext';
 import { Phone, MessageSquare, Video, Calendar } from 'lucide-react';
 
 const Timeline = () => {
-    // Context থেকে timeline ডাটা নিচ্ছি (স্টেটের নাম অনুযায়ী)
+    
     const { timeline } = useContext(TimelineContext);
 
     const getIcon = (type) => {
@@ -20,7 +20,7 @@ const Timeline = () => {
             <h1 className="text-3xl font-bold text-gray-800 mb-8">Timeline</h1>
 
             {timeline.length === 0 ? (
-                <p className="text-gray-400 italic">No history logged yet...</p>
+                <h2 className="text-lg font-bold text-[#1a3c34] mb-4">No history logged yet...</h2>
             ) : (
                 <div className="relative border-l-2 border-gray-200 ml-4">
                     {timeline.map((entry) => (

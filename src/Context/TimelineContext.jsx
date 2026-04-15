@@ -10,12 +10,15 @@ const TimelineProvider = ({children}) => {
 
 
 
-      const addEntry = (type, name) => {
+      const addEntry = (type, name, id) => {
     const newEntry = {
       id: Date.now(),
+      friendId: id,
       date: new Date().toLocaleDateString(),
+      name: name,  
+      type: type,
       title: `${type} with ${name}`,
-      type
+      
     };
      setTimeline(prev => [newEntry, ...prev]);
   };

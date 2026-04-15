@@ -12,8 +12,8 @@ const Status = () => {
     const videoCount = timeline.filter(item => item.type === 'Video').length;
 
     const chartData = [
-        { name: 'Calls', value: callCount, color: '#3b82f6' },   // Blue
-        { name: 'Texts', value: textCount, color: '#22c55e' },   // Green
+        { name: 'Calls', value: callCount, color: '#d8aa2a' },   // Blue
+        { name: 'Texts', value: textCount, color: '#0a0d0b' },   // Green
         { name: 'Videos', value: videoCount, color: '#1a3c34' }, // Purple
     ];
 
@@ -21,7 +21,7 @@ const Status = () => {
     if (timeline.length === 0) {
         return (
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
-                <p className="text-gray-400 italic">No interactions logged to show status.</p>
+                <p className="text-lg font-bold text-gray-700 mb-4 ">No interactions logged to show status.</p>
             </div>
         );
     }

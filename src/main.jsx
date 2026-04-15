@@ -11,6 +11,8 @@ import Timeline from './pages/timelinePage/Timeline'
 import FriendDetails from './pages/friendDetails/FriendDetails'
 import TimelineProvider from './Context/TimelineContext'
 import Status from './pages/status/Status'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'; // এই লাইনটি যোগ করুন
 
 
 const router = createBrowserRouter([
@@ -44,6 +46,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <TimelineProvider>
       <RouterProvider router={router} />
+       <ToastContainer />
     </TimelineProvider>
 
   </StrictMode>,

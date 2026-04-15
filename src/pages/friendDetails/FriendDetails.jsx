@@ -4,6 +4,7 @@ import useFriendsData from '../../Hooks/useFriendsData';
 import { Archive, Bell, MessageSquare, Phone, Trash2, Video } from 'lucide-react';
 import { useContext } from 'react';
 import { TimelineContext } from '../../Context/TimelineContext';
+import { toast } from 'react-toastify';
 
 
 
@@ -19,22 +20,41 @@ const FriendDetails = () => {
 
 
 
-    const { addEntry } = useContext (TimelineContext);
     
-    const handleAction = (type) => {
-         if (!expectedFriend) return;
-        addEntry(type, expectedFriend.name);
-       alert(`${type} added!`);
+    
+    // const handleAction = (type) => {
+    //      if (!expectedFriend) return;
+    //     addEntry(type, expectedFriend.name);
+    //    toast.success(`${type} added!`);
 
+    // }
+// ১. Context থেকে timeline এবং addEntry দুটোই রিসিভ করুন
+const { addEntry, timeline } = useContext(TimelineContext); 
+
+const handleAction = (type) => {
+    if (!expectedFriend) return;
+
+    // ২. find দিয়ে চেক করুন এই বন্ধু এবং এই টাইপের কোনো এন্ট্রি আগে থেকে আছে কি না
+    const existingEntry = timeline.find(
+        (entry) => entry.name === expectedFriend.name && entry.type === type
+    );
+
+    // ৩. যদি existingEntry থাকে (অর্থাৎ ডাটা পাওয়া গেছে)
+    if (existingEntry) {
+        toast.error(`Already logged a ${type} for ${expectedFriend.name}!`);
+        return; // এখানেই ফাংশন থামিয়ে দিন
     }
 
+    // ৪. যদি আগে না থাকে, তবেই নতুন ডাটা যোগ হবে
+    addEntry(type, expectedFriend.name);
+    toast.success(`${type} added to timeline!`);
+};
 
         return (
 
             <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-                    {/* --- Left Column: Friend Info Card (Col-4) --- */}
                     <div className="lg:col-span-4 flex flex-col gap-4">
                         <div className="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center border border-gray-100 text-center">
                             {/* Profile Picture */}
